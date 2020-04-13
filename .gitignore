@@ -1,3 +1,10 @@
+# Virtual environment
+venv
+
+# docker environment and volumes
+.env
+mysql-data/
+
 # Created by https://www.gitignore.io/api/python
 # Edit at https://www.gitignore.io/?templates=python
 
@@ -107,6 +114,3 @@ dmypy.json
 .pyre/
 
 # End of https://www.gitignore.io/api/python
-
-# Virtual environment
-venv
