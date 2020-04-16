@@ -70,6 +70,8 @@ Here are more informations about testing in Python :
 
 - [Getting Started With Testing in Python](https://realpython.com/python-testing/)
 
+In the particular case of Flask we will use pytest *fixtures* that will allow us to create a virtual testing environment for  the web application, see [Flask Tutorial - Test Coverage](https://flask.palletsprojects.com/en/1.1.x/tutorial/tests/) for a detailed example, and the files  in */tests/test_webapp/* for our implementation.
+
 ## Development practices
 
 - See [Python Guide](../guide-python/guide-python.md) for more informations

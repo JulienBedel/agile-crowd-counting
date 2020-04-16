@@ -48,3 +48,12 @@ We will most probably use the MVC (Model View Controller) pattern.
 
 - [Understanding Best Practice Python Tooling by Comparing Popular Project Templates](https://medium.com/better-programming/understanding-best-practice-python-tooling-by-comparing-popular-project-templates-6eba49229106)
 - [Pipenv & Virtual Environments](https://docs.python-guide.org/dev/virtualenvs/)
+
+### Flask project structure
+
+A Flask project has its own particularities, the basic ones needed to participate in the repository are :
+
+- [Flast Tutorial - Project Layout](https://flask.palletsprojects.com/en/1.1.x/tutorial/layout/)
+- [Explore Flask - Organizing your project](https://exploreflask.com/en/latest/organizing.html)
+- [Structure of a Flask project](https://lepture.com/en/2018/structure-of-a-flask-project)
+
