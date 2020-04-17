@@ -1,0 +1,26 @@
+<!doctype html>
+<title>Image {{image.id}}</title>
+<body>
+    <p>Image path : {{ image.path}}</p>
+{% if scores %}
+    <table>
+        <thead>
+            <tr>
+                <th>username</th>
+                <th>score</th>
+            </tr>
+        </thead>
+        <body>
+            {% for score in scores %}
+            <tr>
+                <td>{{score.username}}</td>
+                <td>{{score.score}}</td>
+            </tr>
+            {% endfor %}
+        </body>
+    </table>
+    
+{% else %}    
+    <h1>No score found in database</h1>
+{% endif %}
+</body>

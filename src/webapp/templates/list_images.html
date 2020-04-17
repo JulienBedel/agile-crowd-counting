@@ -1,0 +1,19 @@
+<!doctype html>
+<title>List of images</title>
+{% if images %}
+    <table>
+        <body>
+            {% for image in images %}
+            <tr>
+                 <!--Two solutions to get the id : hidden in the page or directly in the href link-->
+                <td hidden>{{ image.id }}</td>
+                <td>Path : {{ image.path}}</td>
+                <td><input type="button" onclick="location.href='/image?id={{ image.id }}';" value="select image" /></td>
+            </tr>
+            {% endfor %}
+        </body>
+    </table>
+    
+{% else %}    
+    <p>No image found in database</p>
+{% endif %} 
