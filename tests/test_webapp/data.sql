@@ -1,6 +1,7 @@
--- creating 2 images
-INSERT INTO images(path) VALUES ('/web-data/images/image1.png');
-INSERT INTO images(path) VALUES ('/web-data/images/image2.png');
+-- creating 3 images, third left with no record
+INSERT INTO images(path, count) VALUES ('crowd.png', 12);
+INSERT INTO images(path, count) VALUES ('crowd2.jpg', -1);
+INSERT INTO images(path, count) VALUES ('crowd3.jpg', -1);
 
 -- creating 3 users
 INSERT INTO users(username) VALUES ('user1');

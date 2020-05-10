@@ -11,6 +11,7 @@ CREATE TABLE users (
 CREATE TABLE images (
     id INTEGER,
     path VARCHAR(255) NOT NULL,
+    count INT NOT NULL,
     PRIMARY KEY (id)
 );
 
