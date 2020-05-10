@@ -1,2 +1,4 @@
 pytest
 flask
+flask_socketio
+opencv-python

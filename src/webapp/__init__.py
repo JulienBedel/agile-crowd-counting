@@ -1,11 +1,14 @@
 import os
 
 from flask import Flask
+from flask_socketio import SocketIO
 
 """
     Specifies Flask configuration and initiates environment.
     See : https://flask.palletsprojects.com/en/1.1.x/tutorial/factory/
 """
+
+socketio = SocketIO(async_mode=None, logger=True, engineio_logger=True)
 
 
 def create_app(test_config=None):
@@ -40,4 +43,8 @@ def create_app(test_config=None):
     from . import main
     app.register_blueprint(main.bp)
 
+    socketio.init_app(app)
+
     return app
+
+
