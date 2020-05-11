@@ -1,26 +1,37 @@
 import cv2
+import imutils
 import numpy as np
+from matplotlib import pyplot as plt
 
-img_rgb = cv2.imread('DJI_0554_0.png')
-img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
-template = cv2.imread('template2.png',0)
-w, h = template.shape[::-1]
+img_rgb = cv2.imread('crowd.png')
+imgYCC = cv2.cvtColor(img_rgb, cv2.COLOR_YCrCb2RGB)
+img_gray = cv2.cvtColor(imgYCC, cv2.COLOR_BGR2GRAY)
 
-res = cv2.matchTemplate(img_gray,template,cv2.TM_CCOEFF_NORMED)
-threshold = 0.8
-loc = np.where( res >= threshold)
 
-f = set()
-count = 0
+##################
+lower = np.array([178])
+upper = np.array([202])
+shapeMask = cv2.inRange(img_gray, lower, upper)
 
-for pt in zip(*loc[::-1]):
-    cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
+cnts = cv2.findContours(shapeMask.copy(), cv2.RETR_EXTERNAL,
+	cv2.CHAIN_APPROX_SIMPLE)
+cnts = imutils.grab_contours(cnts)
+#cv2.imshow("Mask", shapeMask)
 
-    sensitivity = 100
-    f.add((round(pt[0]/sensitivity), round(pt[1]/sensitivity)))
-    count = count + 1
+##################
+
+
 
 cv2.imwrite('res.png',img_rgb)
+cv2.imwrite('test.png', imgYCC)
+cv2.imwrite('test2.png', img_gray)
+cv2.imwrite('test22.png', shapeMask)
+#cv2.imwrite('test4.png', imgYCC2)
 
-found_count = len(f)
-print(found_count)
+if len(cnts) == 0:
+    print(-1)
+else :
+    print(len(cnts))
+
+
+
