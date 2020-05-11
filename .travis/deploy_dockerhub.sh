@@ -5,5 +5,5 @@ if [ "$TRAVIS_BRANCH" = "master" ]; then
 else
     TAG="$TRAVIS_BRANCH"
 fi
-docker build -f Dockerfile -t agile-crowd-counting:$TAG .
-docker push agile-crowd-counting:$TAG 
+docker build -f Dockerfile -t $DOCKER_USER/agile-crowd-counting:$TAG .
+docker push $DOCKER_USER/agile-crowd-counting:$TAG 

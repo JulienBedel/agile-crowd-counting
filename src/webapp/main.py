@@ -39,19 +39,17 @@ def upload():
     
     uploads = request.files.getlist("file")
     
-    print("received " + str(uploads))
-
     if uploads:
         for upload in uploads:
 
             if (imghdr.what(upload)== 'jpeg' or imghdr.what(upload)=='png' or imghdr.what(upload)=='bmp'):
                 filename = upload.filename
                 destination = "/".join([target, filename])
-                counted_points = count(target)
+                upload.save(destination)
+                counted_points = count(destination)
                 db = get_db()
                 db.execute('INSERT INTO images (path, count) VALUES (?, ?)',(filename, counted_points) )
                 db.commit()
-                upload.save(destination)
                 return render_template("upload_success.html")
 
             else:
